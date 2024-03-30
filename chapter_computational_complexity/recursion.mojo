@@ -17,7 +17,7 @@ fn recur(n: Int) -> Int:
 fn forLoopRecur(n: Int) -> Int:
     """使用迭代模拟递归."""
     # 使用一个显式的栈来模拟系统调用栈
-    var stack = DynamicVector[Int]()
+    var stack = List[Int]()
     var res = 0
     # 递：递归调用
     for i in range(n, 0, -1):

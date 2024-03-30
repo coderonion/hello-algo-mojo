@@ -6,12 +6,12 @@ Author: codingonion (coderonion@gmail.com)
 
 import random
 
-fn print_array[size: Int](arr: StaticTuple[size, Int]):
-    print_no_newline("[")
+fn print_array[size: Int](arr: StaticTuple[Int, size]):
+    print("[")
     for i in range(len(arr)):
-        print_no_newline(arr[i])
+        print(arr[i])
         if i != len(arr) - 1:
-            print_no_newline(", ")
+            print(", ")
     print("]")
 
 fn random_access(nums: StaticIntTuple) -> Int:
