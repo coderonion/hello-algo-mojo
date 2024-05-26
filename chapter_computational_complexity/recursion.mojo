@@ -14,7 +14,7 @@ fn recur(n: Int) -> Int:
     # 归：返回结果
     return n + res
 
-fn forLoopRecur(n: Int) -> Int:
+fn for_loop_recur(n: Int) -> Int:
     """使用迭代模拟递归."""
     # 使用一个显式的栈来模拟系统调用栈
     var stack = List[Int]()
@@ -26,17 +26,17 @@ fn forLoopRecur(n: Int) -> Int:
     # 归：返回结果
     while len(stack):
         # 通过“出栈操作”模拟“归”
-        res += stack.pop_back()
+        res += stack.pop()
     # res = 1+2+3+...+n
     return res
 
-fn tailRecur(n: Int, res: Int) -> Int:
+fn tail_recur(n: Int, res: Int) -> Int:
     """尾递归."""
     # 终止条件
     if n == 0:
         return res
     # 尾递归调用
-    return tailRecur(n - 1, res + n)
+    return tail_recur(n - 1, res + n)
 
 fn fib(n: Int) -> Int:
     """斐波那契数列：递归."""
@@ -48,18 +48,17 @@ fn fib(n: Int) -> Int:
     # 返回结果 f(n)
     return res
 
-
 """Driver Code"""
 fn main() raises:
     var n = 5
     var res = recur(n)
     print("\n递归函数的求和结果 res =", res)
 
-    res = forLoopRecur(n)
+    res = for_loop_recur(n)
     print("\n使用迭代模拟递归求和结果 res =", res)
 
-    res = tailRecur(n, 0)
+    res = tail_recur(n, 0)
     print("\n尾递归函数的求和结果 res =", res)
 
     res = fib(n)
-    print("\n斐波那契数列的第 " + n.__str__() + " 项为 " + res.__str__())
+    print("\n斐波那契数列的第", n, "项为", res)

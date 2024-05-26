@@ -6,27 +6,19 @@ Author: codingonion (coderonion@gmail.com)
 
 import random
 
-fn print_array[size: Int](arr: StaticTuple[Int, size]):
-    print("[")
-    for i in range(len(arr)):
-        print(arr[i])
-        if i != len(arr) - 1:
-            print(", ")
-    print("]")
-
 fn random_access(nums: StaticIntTuple) -> Int:
     """随机访问元素."""
     # 在区间 [0, len(nums)-1] 中随机抽取一个数字
     random.seed()
-    var random_index = random.random_si64(0, len(nums) - 1)
+    var random_index = random.random_ui64(0, len(nums) - 1)
     # 获取并返回随机元素
     var random_num = nums[random_index]
     return random_num
 
-fn extend[enlarge: Int](nums: StaticIntTuple) -> StaticIntTuple[enlarge] :
+fn extend[size: Int, enlarge: Int](nums: StaticIntTuple) -> StaticIntTuple[size + enlarge]:
     """扩展数组长度."""
     # 初始化一个扩展长度后的数组
-    var res = StaticIntTuple[enlarge]()
+    var res = StaticIntTuple[size + enlarge]()
     # 将原数组中的所有元素复制到新数组
     for i in range(len(nums)):
         res[i] = nums[i]
@@ -64,7 +56,7 @@ fn find(nums: StaticIntTuple, target: Int) -> Int:
 """Driver Code"""
 fn main() raises:
     # 初始化数组
-    alias arr = StaticIntTuple[5](0)
+    alias arr = StaticIntTuple[5]()
     print("数组 arr = ", arr)
     alias nums = StaticIntTuple[5](1, 3, 2, 5, 4)
     print("数组 nums =", nums)
@@ -74,7 +66,7 @@ fn main() raises:
     print("在 nums 中获取随机元素", random_num)
 
     # 长度扩展
-    var nums_new = extend[len(nums)+3](nums)
+    var nums_new = extend[len(nums), 3](nums)
     print("将数组长度扩展至 8 ，得到 nums =", nums_new)
 
     # 插入元素

@@ -4,7 +4,7 @@ Created Time: 2024-03-16
 Author: codingonion (coderonion@gmail.com)
 """
 
-fn forLoop(n: Int) -> Int:
+fn for_loop(n: Int) -> Int:
     """For 循环."""
     var res = 0
     # 循环求和 1, 2, ..., n-1, n
@@ -12,8 +12,7 @@ fn forLoop(n: Int) -> Int:
         res += i
     return res
 
-
-fn whileLoop(n: Int) -> Int:
+fn while_loop(n: Int) -> Int:
     """While 循环."""
     var res = 0
     var i = 1  # 初始化条件变量
@@ -23,8 +22,7 @@ fn whileLoop(n: Int) -> Int:
         i += 1  # 更新条件变量
     return res
 
-
-fn whileLoopII(n: Int) -> Int:
+fn while_loop_ii(n: Int) -> Int:
     """While 循环（两次更新）."""
     var res = 0
     var i = 1  # 初始化条件变量
@@ -36,27 +34,27 @@ fn whileLoopII(n: Int) -> Int:
         i *= 2
     return res
 
-fn nestedForLoop(n: Int) -> String:
+fn nested_for_loop(n: Int) -> String:
     """双层 for 循环."""
     var res: String = ""
     # 循环 i = 1, 2, ..., n-1, n
     for i in range(1, n + 1):
         # 循环 j = 1, 2, ..., n-1, n
         for j in range(1, n + 1):
-            res = res + "(" + i.__str__() + ", " + j.__str__() + "), "
+            res = res + "(" + i + ", " + j + "), "
     return res
 
 """Driver Code"""
 fn main() raises:
     var n = 5
-    var res = forLoop(n)
+    var res = for_loop(n)
     print("\nfor 循环的求和结果 res = ", res)
 
-    res = whileLoop(n)
+    res = while_loop(n)
     print("\nwhile 循环的求和结果 res = ", res)
 
-    res = whileLoopII(n)
+    res = while_loop_ii(n)
     print("\nwhile 循环（两次更新）求和结果 res = ", res)
 
-    var res_new = nestedForLoop(n)
+    var res_new = nested_for_loop(n)
     print("\n双层 for 循环的遍历结果 ", res_new)
