@@ -1,5 +1,5 @@
 """
-File: worst_best_time_complexity.py
+File: worst_best_time_complexity.mojo
 Created Time: 2024-05-26
 Author: codingonion (coderonion@gmail.com)
 """
